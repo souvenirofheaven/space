@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Ascendants</title>
+      <meta charset="UTF-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1.0"
+         />
+   </head>
+   <style>
+html, body{height: 100%;}
+      .character{
+      position: absolute;
+      left: 50%;
+      bottom: 0px;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      z-index: 60;
+      opacity: 0.9;
+       max-width: 100%;
+  width: 500px;  
+      }
+      body{
+      background: #000 no-repeat center center fixed;
+      background-size: cover;
+      }
+      .wrapper {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      }
+      h1 {
+      margin-top: 0px !important;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      
+      color: white;
+      font-family: "Montserrat", sans-serif;
+      }
+      .title {
+      background-image: url(https://i.pinimg.com/564x/12/5b/aa/125baa8d9c2cf3da7fb84f6100471ba4.jpg);
+      background-attachment: fixed;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      font-size:10vw;
+      }
+      
+   </style>
+   <body>
+      <h1 class="title">
+      ASCENDANTS
+      <h1></h1>
+      <div class="character"><img
+         alt="character"
+         src="https://i.ibb.co/VYPyyqF/character.png"
+         class="glitch"
+         height="1000"
+         /></div>
+      
+      
+      <script src="https://unpkg.com/powerglitch@2.3.3/dist/powerglitch.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+      
+      <script>
+         window.addEventListener("load", function () {
+           PowerGlitch.glitch(".glitch", {
+         "hideOverflow": true,
+         "timing": {
+         "duration": 2150
+         },
+         "shake": {
+         "amplitudeX": 0,
+         "amplitudeY": 0
+         },
+         "slice": {
+         "count": 39,
+         "minHeight": 0.01,
+         "maxHeight": 0.16
+         }
+         });
+         var tl = gsap.timeline({ repeat: -1 });
+         tl.to("h1", 30, { backgroundPosition: "-960px 0" });
+         
+         });
+            window.addEventListener("mousedown", playMP3)
+         let sound = new Audio("./music/purga.mp3");
+         function playMP3(e) {
+         e.preventDefault();
+         sound.play();
+         }
+         
+      </script>
+      <div class="border"></div>
+   </body>
+</html>
