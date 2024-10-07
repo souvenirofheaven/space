@@ -1,101 +1,280 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <title>Ascendants</title>
-      <meta charset="UTF-8" />
-      <meta
-         name="viewport"
-         content="width=device-width, initial-scale=1.0"
-         />
-   </head>
-   <style>
-html, body{height: 100%;}
-      .character{
-      position: absolute;
-      left: 50%;
-      bottom: 0px;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%);
-      z-index: 60;
-      opacity: 0.9;
-       max-width: 100%;
-  width: 500px;  
+<html>
+  <head>
+    <title>Bootstrap Profile Card Animation</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+    <style>
+                  * {
+                    margin: 0px;
+                    padding: 0px;
+                    box-sizing: border-box;
+                  }
+                  body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                    background: #000;
+                  }
+                  .wrapper {
+                    background: #000000 none repeat scroll 0 0;
+                    border: 2px solid #e1e8ed;
+                    border-radius: 0px;
+                    height: auto;
+                    width: 100%;
+                    max-width: 450px;
+                    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.09);
+                    position: relative;
+                  }
+                  .main-wrapper {
+                    background-image: url("https://i.pinimg.com/originals/35/4f/6a/354f6ab197de51bb1bcc7cd9aae0639d.jpg");
+                    background-position: 0 50%;
+                    background-size: 100% auto;
+                    border-radius: 4px 4px 0px 0px;
+                    height: 95px;
+                    width: 100%;
+                  }
+                  #profile-link {
+                    border-radius: 6px;
+                    display: inline-block;
+                    float: left;
+                    margin: -60px 5px 0px 8px;
+                    max-width: 100%;
+                    padding: 1px;
+                    vertical-align: bottom;
+                  }
+                  #profile-img {
+                    border: 2px solid #fff;
+                    border-radius: 7px;
+                    color: #fff;
+                    height: 150px;
+                    width: 150px;
+                    border-radius: 50%;
+                  }
+                  #profile-marg {
+                    margin: 5px 0px 0px;
+                  }
+                  #profile-name {
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 49px;
+          margin-top: 15px;
       }
-      body{
-      background: #000 no-repeat center center fixed;
-      background-size: cover;
+                  #profile-name a {
+                    color: inherit;
+                  }
+                  #profile-state {
+                    padding: 15px;
+                    margin-top: 40px;
+                  }
+                  #profile-Arrange {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 0;
+                    min-width: 100%;
+                    padding: 0px;
+                  }
+                  ul#profile-Arrange {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                  }
+                  #profile-details a:hover {
+                    text-decoration: none;
+                  }
+                  #profile-number {
+                    display: block;
+                    font-size: 18px;
+                    font-weight: 500;
+                    transition: color 0.15s ease-in-out 0s;
+                  }
+                  #profile-label {
+                    color: #8899a6;
+                    font-size: 10px;
+                    letter-spacing: 0.02em;
+                    overflow: hidden;
+                    text-transform: uppercase;
+                    transition: color 0.15s ease-in-out 0s;
+                  }
+                  .header {
+                    background-color: #fff;
+                    color: #000;
+                    font-size: 15px;
+                    font-weight: bolder;
+                    padding: 5px 10px;
+                  }
+                  .close-btn {
+                    color: #000000;
+                    font-size: 28px;
+                    position: absolute;
+                    right: 10px;
+                    z-index: 1;
+                    top: -9px;
+                  }
+                  .section {
+                    border: 1px solid #fff;
+                  }
+                  html {
+                    font-size: 22px;
+                  }
+
+                  .card {
+                    color: white;
+                    padding: 1rem;
+                    height: 4rem;
+                  }
+
+                  .cards {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-gap: 1rem;
+                  }
+
+                  /* Screen larger than 600px? 2 column */
+                  @media (min-width: 600px) {
+                    .cards {
+                      grid-template-columns: repeat(2, 1fr);
+                    }
+                  }
+
+                  /* Screen larger than 900px? 3 columns */
+                  @media (min-width: 900px) {
+                    .cards {
+                      grid-template-columns: repeat(3, 1fr);
+                    }
+                  }
+                  .grid-container {
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+
+                    padding: 0px;
+                  }
+                  .grid-item {
+                    border: 1px solid rgba(255, 255, 255, 0.8), 0.8);
+                    padding: 0px;
+                    font-size: 30px;
+                    text-align: left;
+                    color: white;
+                    font-size: 10px;
+
+                  }
+                  .subtitle {
+                    font-size: 10px;
+                    color: lightgray;
+                  }
+                  .bordered {
+                    border: 1px solid white;
+                    padding: 5px;
+                  }
+                  .vertical{writing-mode: vertical-rl;
+            text-orientation: mixed;}
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        Introducing...
+        <div class="close-btn">x</div>
+      </div>
+      <a class="profile-bg main-wrapper d-block"></a>
+      <div>
+        <a
+          href="#"
+          id="profile-link"
+        >
+          <img
+            decoding="async"
+            src="https://i.pinimg.com/564x/b2/a7/d1/b2a7d133919e8cc157f0e8229147425e.jpg"
+            id="profile-img"
+          />
+        </a>
+        <div id="profile-marg">
+          <div id="profile-name">
+            <a
+              href="#"
+              style="color: white; font-size: 30px; color: white; font-size: 41px"
+              >ASCENDANTS</a
+            >
+          </div>
+          <span style="color: white; font-size: 10px">Best comeback ever.</span>
+        </div>
+        <div id="profile-state">
+          <div class="grid-container">
+            <div class="grid-item">
+              <div class="bordered">You are weak. And you are weak because you don't have enough hate.</div>
+              <br />
+              <img
+                src="https://64.media.tumblr.com/2dfedd1128b0bf84f894f38318135a88/3b11d698b3faf83b-bf/s540x810/0a4d28246c0e7cd949c7407b8a54bd17a0e543b7.gifv"
+                style="width: 220px"
+              />
+              <br />
+              <div class="bordered"><span style="background-color: white; color: black; padding: 0px 4px">I like</span> gym, memes an her perfect ass.</div>
+            </div>
+            <div class="grid-item">
+              <div
+                class="vertical"
+                style="font-size: 37px; color: #f50683; font-weight: bold"
+              >
+                忘れられない
+              </div>
+            </div>
+            <div class="grid-item">
+              <!-- https://i.pinimg.com/736x/c6/6f/45/c66f459759cafd5fd9eb5fb54bba1a00.jpg -->
+              <img
+                src="https://i.pinimg.com/originals/6f/87/c2/6f87c2476e30e72c2112d13c0ba4089f.gif"
+                style="width: 150"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        PowerGlitch.glitch("#profile-img", {
+          hideOverflow: true,
+          timing: {
+            duration: 3150,
+          },
+          shake: {
+            amplitudeX: 0,
+            amplitudeY: 0,
+          },
+          slice: {
+            count: 39,
+            minHeight: 0.01,
+            maxHeight: 0.16,
+          },
+        });
+        var tl = gsap.timeline({ repeat: -1 });
+        tl.to(".main-wrapper", 100, { backgroundPosition: "-960px 0" });
+      });
+      window.addEventListener("mousedown", playMP3);
+      let sound = new Audio("./music/purga.mp3");
+      function playMP3(e) {
+        e.preventDefault();
+        sound.play();
       }
-      .wrapper {
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      }
-      h1 {
-      margin-top: 0px !important;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      
-      color: white;
-      font-family: "Montserrat", sans-serif;
-      }
-      
-      .title {
-      background-image: url(https://i.pinimg.com/564x/12/5b/aa/125baa8d9c2cf3da7fb84f6100471ba4.jpg);
-      background-attachment: fixed;
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text;
-      font-size:10vw;
-      }
-      
-   </style>
-   <body>
-      <h1 class="title">
-      ASCENDANTS
-      <h1></h1>
-      <div class="character"><img
-         alt="character"
-         src="https://i.ibb.co/VYPyyqF/character.png"
-         class="glitch"
-         height="1000"
-         /></div>
-      
-      
-      <script src="https://unpkg.com/powerglitch@2.3.3/dist/powerglitch.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-      
-      <script>
-         window.addEventListener("load", function () {
-           PowerGlitch.glitch(".glitch", {
-         "hideOverflow": true,
-         "timing": {
-         "duration": 2150
-         },
-         "shake": {
-         "amplitudeX": 0,
-         "amplitudeY": 0
-         },
-         "slice": {
-         "count": 39,
-         "minHeight": 0.01,
-         "maxHeight": 0.16
-         }
-         });
-         var tl = gsap.timeline({ repeat: -1 });
-         tl.to("h1", 30, { backgroundPosition: "-960px 0" });
-         
-         });
-            window.addEventListener("mousedown", playMP3)
-         let sound = new Audio("./music/purga.mp3");
-         function playMP3(e) {
-         e.preventDefault();
-         sound.play();
-         }
-         
-      </script>
-      <div class="border"></div>
-   </body>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/powerglitch@2.3.3/dist/powerglitch.min.js"></script>
+  </body>
 </html>
