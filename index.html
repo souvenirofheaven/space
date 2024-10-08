@@ -1,285 +1,529 @@
-<html>
-  <head>
-    <title>Ascendants</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="style.css"
-    />
-    <style>
-                  * {
-                    margin: 0px;
-                    padding: 0px;
-                    box-sizing: border-box;
-                  }
-                  body {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100vh;
-                    background: #000;
-                  }
-                  .wrapper {
-                    background: #000000 none repeat scroll 0 0;
-                    border: 2px solid #e1e8ed;
-                    border-radius: 0px;
-                    height: auto;
-                    width: 100%;
-                    max-width: 450px;
-                    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.09);
-                    position: relative;
-                  }
-                  .main-wrapper {
-                    background-image: url("https://i.pinimg.com/originals/35/4f/6a/354f6ab197de51bb1bcc7cd9aae0639d.jpg");
-                    background-position: 0 50%;
-                    background-size: 100% auto;
-                    border-radius: 4px 4px 0px 0px;
-                    height: 95px;
-                    width: 100%;
-                  }
-                  #profile-link {
-                    border-radius: 6px;
-                    display: inline-block;
-                    float: left;
-                    margin: -60px 5px 0px 8px;
-                    max-width: 100%;
-                    padding: 1px;
-                    vertical-align: bottom;
-                  }
-                  #profile-img {
-                    border: 2px solid #fff;
-                    border-radius: 7px;
-                    color: #fff;
-                    height: 150px;
-                    width: 150px;
-                    border-radius: 50%;
-                  }
-                  #profile-marg {
-                    margin: 5px 0px 0px;
-                  }
-                  #profile-name {
-          font-size: 18px;
-          font-weight: 700;
-          line-height: 49px;
-          margin-top: 15px;
-      }
-                  #profile-name a {
-                    color: inherit;
-                  }
-                  #profile-state {
-                    padding: 15px;
-                    margin-top: 40px;
-                  }
-                  #profile-Arrange {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    margin: 0;
-                    min-width: 100%;
-                    padding: 0px;
-                  }
-                  ul#profile-Arrange {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                  }
-                  #profile-details a:hover {
-                    text-decoration: none;
-                  }
-                  #profile-number {
-                    display: block;
-                    font-size: 18px;
-                    font-weight: 500;
-                    transition: color 0.15s ease-in-out 0s;
-                  }
-                  #profile-label {
-                    color: #8899a6;
-                    font-size: 10px;
-                    letter-spacing: 0.02em;
-                    overflow: hidden;
-                    text-transform: uppercase;
-                    transition: color 0.15s ease-in-out 0s;
-                  }
-                  .header {
-                    background-color: #fff;
-                    color: #000;
-                    font-size: 15px;
-                    font-weight: bolder;
-                    padding: 5px 10px;
-                  }
-                  .close-btn {
-                    color: #000000;
-                    font-size: 28px;
-                    position: absolute;
-                    right: 10px;
-                    z-index: 1;
-                    top: -9px;
-                  }
-                  .section {
-                    border: 1px solid #fff;
-                  }
-                  html {
-                    font-size: 22px;
-                  }
+<html data-theme="dark">
+   <head>
+      <title>Ascendants</title>
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1.0"
+         />
+      <link
+         rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+         />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link
+         rel="stylesheet"
+         href="style.css"
+         />
+      <style>
+         :root {
+         --bg-color: #f0f0f0;
+         --text-color: #000000;
+         --cbg: #f5f5f5;
+         --input-bg: #fff;
+         --button-bg: #222325;
+         --button-color: #fff;
+         --swatch-bg: #fff;
+         --swatch-text: #333;
+         --swatch-shadow: rgba(0, 0, 0, 0.1);
+         --icon-color: #222325;
+         --switch-bg: #ccc;
+         --switch-knob: #fff;
+         --light-gray: #999;
+         --border-color: #000;
+         }
+         [data-theme="dark"] {
+         --cbg: #000000;
+         --bg-color: #000;
+         --text-color: #fff;
+         --input-bg: #333;
+         --button-bg: #fff;
+         --button-color: #222325;
+         --swatch-bg: #fff;
+         --swatch-text: #333;
+         --swatch-shadow: rgba(0, 0, 0, 0.2);
+         --icon-color: #222325;
+         --switch-bg: #fff;
+         --switch-knob: #222325;
+         --light-gray: #777;
+         --border-color: #FFF;
+         }
+         * {
+         margin: 0px;
+         padding: 0px;
+         box-sizing: border-box;
+         }
+         body {
+         background-color: var(--bg-color);
+         
+         transition: background-color 0.3s, color 0.3s;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+         flex-direction: column;
+         }
+         .text{
+          color: var(--text-color) !important;
+         }
+         .text-alt{
+          color:  calc(var(--text-color) * -1)
+         }
+         .content-alt{
+          color:  calc(var(--bg-color) * -1)
+         }
+         
+        
+         .wrapper {
+         background:  var(--bg-color) none repeat scroll 0 0;
+         border: 2px solid #e1e8ed;
+         border-radius: 0px;
+         height: auto;
+         width: 100%;
+         max-width: 450px;
+         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.09);
+         position: relative;
+         }
+         .main-wrapper {
+         background-image: url("https://i.pinimg.com/originals/35/4f/6a/354f6ab197de51bb1bcc7cd9aae0639d.jpg");
+         background-position: 0 50%;
+         background-size: 100% auto;
+         border-radius: 4px 4px 0px 0px;
+         height: 95px;
+         width: 100%;
+         }
+         #profile-link {
+         border-radius: 6px;
+         display: inline-block;
+         float: left;
+         margin: -60px 5px 0px 8px;
+         max-width: 100%;
+         padding: 1px;
+         vertical-align: bottom;
+         }
+         #profile-img {
+         border: 2px solid #fff;
+         border-radius: 7px;
+         color: #fff;
+         height: 150px;
+         width: 150px;
+         border-radius: 50%;
+         }
+         #profile-marg {
+         margin: 5px 0px 0px;
+         }
+         #profile-name {
+         font-size: 18px;
+         font-weight: 700;
+         line-height: 49px;
+         margin-top: 15px;
+         }
+         #profile-name a {
+         color: inherit;
+         }
+         #profile-state {
+         padding: 15px;
+         margin-top: 40px;
+         }
+         #profile-Arrange {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         margin: 0;
+         min-width: 100%;
+         padding: 0px;
+         }
+         ul#profile-Arrange {
+         list-style: none;
+         margin: 0;
+         padding: 0;
+         }
+         #profile-details a:hover {
+         text-decoration: none;
+         }
+         #profile-number {
+         display: block;
+         font-size: 18px;
+         font-weight: 500;
+         transition: color 0.15s ease-in-out 0s;
+         }
+         #profile-label {
+         color: #8899a6;
+         font-size: 10px;
+         letter-spacing: 0.02em;
+         overflow: hidden;
+         text-transform: uppercase;
+         transition: color 0.15s ease-in-out 0s;
+         }
+         .header {
+         background-color: #fff;
+         color: #000;
+         font-size: 15px;
+         font-weight: bolder;
+         padding: 5px 10px;
+         }
+         .close-btn {
+         color: #000000;
+         font-size: 28px;
+         position: absolute;
+         right: 10px;
+         z-index: 1;
+         top: -9px;
+         }
+         .section {
+         border: 1px solid #fff;
+         }
+         html {
+         font-size: 22px;
+         }
+         .card {
+         color: white;
+         padding: 1rem;
+         height: 4rem;
+         }
+         .cards {
+         max-width: 1200px;
+         margin: 0 auto;
+         display: grid;
+         grid-gap: 1rem;
+         }
+         /* Screen larger than 600px? 2 column */
+         @media (min-width: 600px) {
+         .cards {
+         grid-template-columns: repeat(2, 1fr);
+         }
+         }
+         /* Screen larger than 900px? 3 columns */
+         @media (min-width: 900px) {
+         .cards {
+         grid-template-columns: repeat(3, 1fr);
+         }
+         }
+         .grid-container {
+         display: grid;
+         grid-template-columns: auto auto auto;
+         padding: 0px;
+         }
+         .grid-item {
+         border: 1px solid rgba(255, 255, 255, 0.8), 0.8);
+         padding: 0px;
+         font-size: 30px;
+         text-align: left;
+         color: white;
+         font-size: 10px;
+         }
+         .subtitle {
+         font-size: 10px;
+         color: lightgray;
+         }
+         .bordered {
+         border: 1px solid;
+         border-color: var(--border-color);
+         padding: 5px;
+         }
+         .vertical{writing-mode: vertical-rl;
+         text-orientation: mixed;}
+        .light-mode {
+  background-color: #ffffff;
+  color: black;
+}
 
-                  .card {
-                    color: white;
-                    padding: 1rem;
-                    height: 4rem;
-                  }
+.dark-mode {
+  background-color: #222;
+  color: white;
+}
 
-                  .cards {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    display: grid;
-                    grid-gap: 1rem;
-                  }
 
-                  /* Screen larger than 600px? 2 column */
-                  @media (min-width: 600px) {
-                    .cards {
-                      grid-template-columns: repeat(2, 1fr);
-                    }
-                  }
 
-                  /* Screen larger than 900px? 3 columns */
-                  @media (min-width: 900px) {
-                    .cards {
-                      grid-template-columns: repeat(3, 1fr);
-                    }
-                  }
-                  .grid-container {
-                    display: grid;
-                    grid-template-columns: auto auto auto;
 
-                    padding: 0px;
-                  }
-                  .grid-item {
-                    border: 1px solid rgba(255, 255, 255, 0.8), 0.8);
-                    padding: 0px;
-                    font-size: 30px;
-                    text-align: left;
-                    color: white;
-                    font-size: 10px;
 
-                  }
-                  .subtitle {
-                    font-size: 10px;
-                    color: lightgray;
-                  }
-                  .bordered {
-                    border: 1px solid white;
-                    padding: 5px;
-                  }
-                  .vertical{writing-mode: vertical-rl;
-            text-orientation: mixed;}
-    </style>
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div class="header">
-        Introducing...
-        <div class="close-btn">x</div>
-      </div>
-      <a class="profile-bg main-wrapper d-block"></a>
-      <div>
-        <a
-          href="#"
-          id="profile-link"
-        >
-          <img
-            decoding="async"
-            src="https://i.pinimg.com/564x/b2/a7/d1/b2a7d133919e8cc157f0e8229147425e.jpg"
-            id="profile-img"
-          />
-        </a>
-        <div id="profile-marg">
-          <div id="profile-name">
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*switch styles*/
+
+div.btn-container{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    margin-top: 50px;
+}
+
+div.btn-container i{
+    display: inline-block;
+    position: relative;
+    top: -9px;
+}
+
+label {
+    font-size: 13px;
+    color: #424242;
+    font-weight: 500;
+}
+
+.btn-color-mode-switch{
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner{
+    margin: 0px;
+    width: 140px;
+    height: 30px;
+    background: #E0E0E0;
+    border-radius: 26px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+    display: block;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:before{
+    content: attr(data-on);
+    position: absolute;
+    font-size: 12px;
+    font-weight: 500;
+    top: 7px;
+    right: 20px;
+
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:after{
+    content: attr(data-off);
+    width: 70px;
+    height: 28px;
+    background: #fff;
+    border-radius: 26px;
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 6px -2px #111;
+    padding: 5px 0px;
+}
+
+.btn-color-mode-switch > .alert{
+    display: none;
+    background: #FF9800;
+    border: none;
+    color: #fff;
+}
+
+.btn-color-mode-switch input[type="checkbox"]{
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin: 0px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+    background: #151515;
+    color: #fff;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:after{
+    content: attr(data-on);
+    left: 68px;
+    background: #3c3c3c;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:before{
+    content: attr(data-off);
+    right: auto;
+    left: 20px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+    /*background: #66BB6A; */
+    /*color: #fff;*/
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked ~ .alert{
+    display: block;
+}
+
+/*mode preview*/
+.dark-preview{
+    background: #0d0d0d;
+}
+
+.dark-preview div.btn-container i.fa-sun-o{
+    color: #777;
+}
+
+[data-theme="dark"] div.btn-container i.fa-moon-o{
+    color: #fff;
+    text-shadow: 0px 0px 11px #fff;
+}
+
+.white-preview{
+    background: #fff;
+}
+
+[data-theme="light"] div.btn-container i.fa-sun-o {
+    color: #ffa500 !important;
+    text-shadow: 0px 0px 16px #ffa500;
+}
+
+.white-preview div.btn-container i.fa-moon-o{
+    color: #777;
+}
+
+p.by {
+    
+}
+
+p.by a{
+    text-decoration: none;
+    color: #000;
+}
+
+.dark-preview p.by a{
+    color: #777;
+}
+
+.white-preview p.by a{
+    color: #000;
+}
+
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="header">
+            Introducing...
+            <div class="close-btn">x</div>
+         </div>
+         <a class="profile-bg main-wrapper d-block"></a>
+         <div>
             <a
-              href="#"
-              style="color: white; font-size: 30px; color: white; font-size: 39px"
-              >ASCENDANTS</a
-            >
-          </div>
-          <span style="color: white; font-size: 10px">Best comeback ever.</span>
-        </div>
-        <div id="profile-state">
-          <div class="grid-container">
-            <div class="grid-item">
-              <div class="bordered">You are weak. And you are weak because you don't have enough hate.</div>
-              <br />
-              <img
-                src="https://64.media.tumblr.com/2dfedd1128b0bf84f894f38318135a88/3b11d698b3faf83b-bf/s540x810/0a4d28246c0e7cd949c7407b8a54bd17a0e543b7.gifv"
-                style="width: 220px"
-              />
-              <br />
-              <div class="bordered"><span style="background-color: white; color: black; padding: 0px 4px">I like</span> gym, memes an her ass.</div>
+               href="#"
+               id="profile-link"
+               >
+            <img
+               decoding="async"
+               src="https://i.pinimg.com/564x/b2/a7/d1/b2a7d133919e8cc157f0e8229147425e.jpg"
+               id="profile-img"
+               alt="avatar"               />
+            </a>
+            <div id="profile-marg">
+               <div id="profile-name">
+                  <a
+                     href="#"
+                     class="text"
+                     style="font-size: 30px"
+                     >ASCENDANTS</a
+                     >
+               </div>
+               <span class="text" style="font-size: 10px">Best comeback ever.</span>
             </div>
-            <div class="grid-item">
-              <div
-                class="vertical"
-                style="font-size: 37px; color: #f50683; font-weight: bold"
-              >
-                
-                
-                <img
-                src="https://i.ibb.co/VT6PCZQ/text.png"
-                
-              />
-              </div>
+            <div id="profile-state">
+               <div class="grid-container">
+                  <div
+                     class="grid-item"
+                     style="max-width: 190px"
+                     >
+                     <div class="bordered text">You are weak. And you are weak because you don't have enough hate.</div>
+                     <br />
+                     <img
+                        src="https://64.media.tumblr.com/2dfedd1128b0bf84f894f38318135a88/3b11d698b3faf83b-bf/s540x810/0a4d28246c0e7cd949c7407b8a54bd17a0e543b7.gifv"
+                        style="width: 100%"
+                        alt="city"
+                        />
+                     <br />
+                     <br />
+                     <div class="bordered text"><span style="padding: 0px 4px" class="text-alt content-alt">I like</span> gym, memes and her ass.</div>
+                  </div>
+                  <div class="grid-item">
+                     <div
+                        class="vertical"
+                        style="font-size: 37px; color: #f50683; font-weight: bold"
+                        >
+                        <img src="https://i.ibb.co/VT6PCZQ/text.png" />
+                     </div>
+                  </div>
+                  <div class="grid-item">
+                     <!-- https://i.pinimg.com/736x/c6/6f/45/c66f459759cafd5fd9eb5fb54bba1a00.jpg -->
+                     <img
+                        src="https://i.pinimg.com/originals/6f/87/c2/6f87c2476e30e72c2112d13c0ba4089f.gif"
+                        style="width: 150"
+                        alt="city"
+                        />
+                  </div>
+               </div>
             </div>
-            <div class="grid-item">
-              <!-- https://i.pinimg.com/736x/c6/6f/45/c66f459759cafd5fd9eb5fb54bba1a00.jpg -->
-              <img
-                src="https://i.pinimg.com/originals/6f/87/c2/6f87c2476e30e72c2112d13c0ba4089f.gif"
-                style="width: 150"
-              />
-            </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-
-    <script>
-      window.addEventListener("load", function () {
-        PowerGlitch.glitch("#profile-img", {
-          hideOverflow: true,
-          timing: {
-            duration: 2250,
-          },
-          shake: {
-            amplitudeX: 0,
-            amplitudeY: 0,
-          },
-          slice: {
-            count: 39,
-            minHeight: 0.01,
-            maxHeight: 0.16,
-          },
-        });
-        var tl = gsap.timeline({ repeat: -1 });
-        tl.to(".main-wrapper", 100, { backgroundPosition: "-960px 0" });
-      });
-      window.addEventListener("mousedown", playMP3);
-      let sound = new Audio("./music/goodbye.mp3");
-      function playMP3(e) {
-        e.preventDefault();
-        sound.play();
-      }
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script src="https://unpkg.com/powerglitch@2.3.3/dist/powerglitch.min.js"></script>
-  </body>
+      
+      </div>
+      
+<div class="btn-container">
+		<i class="fa fa-sun-o" aria-hidden="true"></i>
+			<label class="switch btn-color-mode-switch">
+		        <input type="checkbox" name="color_mode" id="color_mode" value="1" checked>
+		        <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+		    </label>
+	    <i class="fa fa-moon-o" aria-hidden="true"></i>
+      
+	</div>
+      
+	</div>
+      <script>
+         window.addEventListener("load", function () {
+           PowerGlitch.glitch("#profile-img", {
+             hideOverflow: true,
+             timing: {
+               duration: 2250,
+             },
+             shake: {
+               amplitudeX: 0,
+               amplitudeY: 0,
+             },
+             slice: {
+               count: 39,
+               minHeight: 0.01,
+               maxHeight: 0.16,
+             },
+           });
+           var tl = gsap.timeline({ repeat: -1 });
+           tl.to(".main-wrapper", 100, { backgroundPosition: "-960px 0" });
+         
+            const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+         
+         function switchTheme(e) {
+         if (e.target.checked) {
+           document.documentElement.setAttribute('data-theme', 'dark');
+         } else {
+           document.documentElement.setAttribute('data-theme', 'light');
+         }
+         }
+         toggleSwitch.addEventListener('change', switchTheme, false);
+         });
+         window.addEventListener("mousedown", playMP3);
+         let sound = new Audio("./music/goodbye.mp3");
+         function playMP3(e) {
+           e.preventDefault();
+           sound.play();
+         }
+      </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+      <script src="https://unpkg.com/powerglitch@2.3.3/dist/powerglitch.min.js"></script>
+   </body>
 </html>
