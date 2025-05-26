@@ -406,6 +406,49 @@ p.by a{
 }
 
       </style>
+	   <style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 0px;
+  }
+
+  .grid-item {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 0px;
+    font-size: 30px;
+    text-align: left;
+    color: white;
+    font-size: 10px;
+  }
+
+  .vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+  }
+
+  .vertical img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 599px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+
+    .vertical {
+      writing-mode: horizontal-tb;
+      text-orientation: initial;
+    }
+
+    .grid-item {
+      text-align: center;
+    }
+  }
+</style>
+
    </head>
    <body>
       <div class="wrapper">
